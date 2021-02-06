@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B75DD29B25CE771500A4630A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD29A25CE771500A4630A /* AppDelegate.swift */; };
-		B75DD29D25CE771500A4630A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD29C25CE771500A4630A /* SceneDelegate.swift */; };
-		B75DD29F25CE771500A4630A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD29E25CE771500A4630A /* ViewController.swift */; };
-		B75DD2A225CE771500A4630A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75DD2A025CE771500A4630A /* Main.storyboard */; };
 		B75DD2A425CE771600A4630A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B75DD2A325CE771600A4630A /* Assets.xcassets */; };
 		B75DD2A725CE771600A4630A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75DD2A525CE771600A4630A /* LaunchScreen.storyboard */; };
 		B75DD2B225CE771700A4630A /* FactsViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2B125CE771700A4630A /* FactsViewerTests.swift */; };
@@ -37,9 +34,6 @@
 /* Begin PBXFileReference section */
 		B75DD29725CE771500A4630A /* FactsViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FactsViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75DD29A25CE771500A4630A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B75DD29C25CE771500A4630A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B75DD29E25CE771500A4630A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B75DD2A125CE771500A4630A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B75DD2A325CE771600A4630A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B75DD2A625CE771600A4630A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B75DD2A825CE771600A4630A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,10 +93,14 @@
 		B75DD29925CE771500A4630A /* FactsViewer */ = {
 			isa = PBXGroup;
 			children = (
+				B75DD2DC25CE7A5000A4630A /* Models */,
+				B75DD2DB25CE7A4000A4630A /* DataModels */,
+				B75DD2DA25CE7A3200A4630A /* DataMappers */,
+				B75DD2D925CE7A2B00A4630A /* Views */,
+				B75DD2D825CE7A1C00A4630A /* ViewModels */,
+				B75DD2D725CE7A1300A4630A /* Services */,
+				B75DD2D625CE7A0500A4630A /* Helpers */,
 				B75DD29A25CE771500A4630A /* AppDelegate.swift */,
-				B75DD29C25CE771500A4630A /* SceneDelegate.swift */,
-				B75DD29E25CE771500A4630A /* ViewController.swift */,
-				B75DD2A025CE771500A4630A /* Main.storyboard */,
 				B75DD2A325CE771600A4630A /* Assets.xcassets */,
 				B75DD2A525CE771600A4630A /* LaunchScreen.storyboard */,
 				B75DD2A825CE771600A4630A /* Info.plist */,
@@ -126,6 +124,55 @@
 				B75DD2BE25CE771700A4630A /* Info.plist */,
 			);
 			path = FactsViewerUITests;
+			sourceTree = "<group>";
+		};
+		B75DD2D625CE7A0500A4630A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B75DD2D725CE7A1300A4630A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B75DD2D825CE7A1C00A4630A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B75DD2D925CE7A2B00A4630A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B75DD2DA25CE7A3200A4630A /* DataMappers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataMappers;
+			sourceTree = "<group>";
+		};
+		B75DD2DB25CE7A4000A4630A /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		B75DD2DC25CE7A5000A4630A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +280,6 @@
 			files = (
 				B75DD2A725CE771600A4630A /* LaunchScreen.storyboard in Resources */,
 				B75DD2A425CE771600A4630A /* Assets.xcassets in Resources */,
-				B75DD2A225CE771500A4630A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B75DD29F25CE771500A4630A /* ViewController.swift in Sources */,
 				B75DD29B25CE771500A4630A /* AppDelegate.swift in Sources */,
-				B75DD29D25CE771500A4630A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +340,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B75DD2A025CE771500A4630A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B75DD2A125CE771500A4630A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B75DD2A525CE771600A4630A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,6 +474,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FactsViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,6 +493,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FactsViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
