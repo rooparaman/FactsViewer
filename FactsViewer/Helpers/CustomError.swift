@@ -13,6 +13,9 @@ enum CustomError: Error {
   
   //Throw in json mapping error
   case mappingError
+  
+  //All other cases
+  case unknowError
 }
 
 //MARK: - CustomStringConvertible
@@ -22,9 +25,11 @@ extension CustomError : CustomStringConvertible {
     case .serverSideError(let code):
       return descriptionForCode(code: code)
     case .mappingError:
-      return "Data is corrupt"
+      return Constants.dataMappingError
     case .transportError(_):
-      return "Network error"
+      return Constants.networkError
+    case .unknowError:
+      return Constants.unknownError
     }
   }
   
@@ -32,13 +37,13 @@ extension CustomError : CustomStringConvertible {
   private func descriptionForCode(code: Int) -> String{
     switch code {
     case 401:
-      return "You need to login"
+      return Constants.unauthorizedError
     case 403:
-      return "You do not have the access rights. Contact admin"
+      return Constants.accessError
     case 500...599:
-      return "An unexpected server error occurred."
+      return Constants.serverError
     default:
-      return "An unexpected error occurred."
+      return Constants.serverError
     }
   }
 }

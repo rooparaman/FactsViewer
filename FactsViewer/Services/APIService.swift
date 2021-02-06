@@ -5,7 +5,7 @@
 import Foundation
 
 struct APIService {
-  //To fetch data from Url 
+  //To fetch data from Url
   func getData(with url:String, completionHandler : @escaping(Result<Data,CustomError>)->Void){
     if let url = URL(string: url) {
       let session = URLSession.shared
@@ -13,16 +13,19 @@ struct APIService {
       let task = session.dataTask(with: request) { (data, response, error) in
         if let error = error {
           completionHandler(.failure(CustomError.transportError(error: error)))
-        }
-        let response = response as! HTTPURLResponse
-        let status = response.statusCode
-        guard (200...299).contains(status) else {
-          completionHandler(Result.failure(CustomError.serverSideError(code: status)))
-          return
-        }
-        
-        if let validData = data {
-          completionHandler(.success(validData))
+        }else {
+          if let response = response as? HTTPURLResponse {
+            let status = response.statusCode
+            guard (200...299).contains(status) else {
+              completionHandler(.failure(CustomError.serverSideError(code: status)))
+              return
+            }
+            if let validData = data {
+              completionHandler(.success(validData))
+            }
+          }else{
+            completionHandler(.failure(CustomError.unknowError))
+          }
         }
       }
       task.resume()

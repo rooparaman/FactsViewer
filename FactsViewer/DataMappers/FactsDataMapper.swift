@@ -7,9 +7,8 @@ struct FactsDataMapper {
   func parseJson(factsData:Data) -> FactsModel? {
     let decoder = JSONDecoder.init()
     do {
-      //      let strData = String(bytes: info, encoding: .utf8)
+      //This is done this way as the json data provided seems to have diacritic in it. And it is not encoded to UTF-8 from server. So, converted it to an ascii string and then parsed using utf-8
       let strData = String(data: factsData, encoding: .ascii)?.data(using: .utf8)
-      //print(strData)
       let decodedData = try decoder.decode(FactsDataModel.self, from: strData!)
       var facts: [FactItem] = []
       for data in decodedData.rows {
@@ -22,7 +21,6 @@ struct FactsDataMapper {
       }
       return FactsModel(country: decodedData.title, facts: facts)
     } catch {
-      print(error)
       return nil
     }
   }

@@ -59,21 +59,13 @@ class FactItemCell: UITableViewCell {
     self.titleLabel.text = viewModel.factTitle
     
     self.descriptionLabel.text = viewModel.factDescription
-    
-    //    viewModel.loadThumbnail(urlSting: viewModel.infoImageUrl, completion: {[weak self] (image) in
-    //      DispatchQueue.main.async {
-    //        self?.infoImageView.image = image
-    //      }
-    //    })
+  
     viewModel.loadThumbnail(urlSting: viewModel.factImageUrl)
     viewModel.image.bind {[weak self] (image) in
       DispatchQueue.main.async {
         self?.infoImageView.image = image
       }
-      
     }
-    
-    
   }
   
   //MARK: Constraints
@@ -83,9 +75,6 @@ class FactItemCell: UITableViewCell {
     NSLayoutConstraint.activate([
       infoImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor,constant: 5),
       infoImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: padding_20),
-      
-      //      infoImageView.bottomAnchor.constraint(greaterThanOrEqualTo: self.contentView.bottomAnchor,constant: -padding_20),
-      //      infoImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor,constant: -padding_20),
       infoImageView.widthAnchor.constraint(equalToConstant: 80),
       infoImageView.heightAnchor.constraint(equalToConstant: 80)
     ])

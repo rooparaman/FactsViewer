@@ -17,6 +17,7 @@ class FactItemViewModel {
     self.factImageUrl = imageRef
   }
   
+  //To load the fact image from the cache or to get from network
   func loadThumbnail(urlSting: String){
     let service = FactsService()
     if let _ = URL(string: urlSting) {

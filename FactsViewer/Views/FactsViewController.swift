@@ -24,6 +24,16 @@ class FactsViewController: UIViewController {
     return activityInd
   }()
   
+  private lazy var errorLabel : UILabel = {
+    let label = UILabel()
+    label.font = UIFont.systemFont(ofSize: 15)
+    label.lineBreakMode = .byWordWrapping
+    label.numberOfLines = 0
+    label.textColor = .black
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -47,11 +57,28 @@ class FactsViewController: UIViewController {
         
         
         if let refreshCtrl = self.factsTblView.refreshControl, refreshCtrl.isRefreshing {
-          print("Refresh Ended")
           self.factsTblView.refreshControl?.endRefreshing()
         }
       }
       
+    }
+    
+    viewModel.fetchFailure.bind {[weak self] (isfailure) in
+      guard let self = self else { return }
+      DispatchQueue.main.async {
+        self.errorLabel.isHidden = false
+        self.factsTblView.isHidden = true
+        if self.activityIndicator.isAnimating {
+          self.activityIndicator.stopAnimating()
+        }
+      }
+    }
+    
+    viewModel.errorReason.bind {[weak self] (error) in
+      guard let self = self else { return }
+      DispatchQueue.main.async {
+        self.errorLabel.text = error
+      }
     }
     
     viewModel.title.bind {[weak self] (title) in
@@ -71,11 +98,13 @@ class FactsViewController: UIViewController {
   
   private func loadViews(){
     self.view.backgroundColor = .white
+    errorLabel.isHidden = true
     factsTblView.translatesAutoresizingMaskIntoConstraints = false
     factsTblView.rowHeight = UITableView.automaticDimension
     factsTblView.estimatedRowHeight = 140.0
     view.addSubview(factsTblView)
     view.addSubview(activityIndicator)
+    view.addSubview(errorLabel)
     setupConstraints()
   }
   
@@ -87,26 +116,21 @@ class FactsViewController: UIViewController {
       factsTblView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
       factsTblView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
     ])
+    
+    NSLayoutConstraint.activate([
+      errorLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
+      errorLabel.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor)
+    ])
   }
   
   @objc func handleRefreshControl() {
-    print("Refresh Started")
     viewModel.fetchAllFacts()
   }
-  
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
+
   
 }
 
+//MARK: - UITableViewDataSource Methods
 extension FactsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.factItems.count
