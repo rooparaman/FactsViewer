@@ -17,6 +17,8 @@
 		B75DD2EC25CE7BCA00A4630A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2EB25CE7BCA00A4630A /* CustomError.swift */; };
 		B75DD2F125CE81D900A4630A /* FactsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2F025CE81D900A4630A /* FactsDataModel.swift */; };
 		B75DD2F625CE822900A4630A /* FactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2F525CE822900A4630A /* FactsModel.swift */; };
+		B75DD2FB25CE832E00A4630A /* FactsDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2FA25CE832E00A4630A /* FactsDataMapper.swift */; };
+		B75DD30025CE860500A4630A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2FF25CE860500A4630A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		B75DD2EB25CE7BCA00A4630A /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		B75DD2F025CE81D900A4630A /* FactsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsDataModel.swift; sourceTree = "<group>"; };
 		B75DD2F525CE822900A4630A /* FactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsModel.swift; sourceTree = "<group>"; };
+		B75DD2FA25CE832E00A4630A /* FactsDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsDataMapper.swift; sourceTree = "<group>"; };
+		B75DD2FF25CE860500A4630A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				B75DD2EB25CE7BCA00A4630A /* CustomError.swift */,
+				B75DD2FF25CE860500A4630A /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 		B75DD2DA25CE7A3200A4630A /* DataMappers */ = {
 			isa = PBXGroup;
 			children = (
+				B75DD2FA25CE832E00A4630A /* FactsDataMapper.swift */,
 			);
 			path = DataMappers;
 			sourceTree = "<group>";
@@ -320,11 +326,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75DD2E725CE7B2C00A4630A /* FactsService.swift in Sources */,
+				B75DD2FB25CE832E00A4630A /* FactsDataMapper.swift in Sources */,
 				B75DD2EC25CE7BCA00A4630A /* CustomError.swift in Sources */,
 				B75DD2DF25CE7B1C00A4630A /* APIService.swift in Sources */,
 				B75DD2F125CE81D900A4630A /* FactsDataModel.swift in Sources */,
 				B75DD29B25CE771500A4630A /* AppDelegate.swift in Sources */,
 				B75DD2F625CE822900A4630A /* FactsModel.swift in Sources */,
+				B75DD30025CE860500A4630A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

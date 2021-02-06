@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct Facts {
+struct FactsModel {
   let country: String
   let facts : [FactItem]
 }
