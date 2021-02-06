@@ -19,6 +19,7 @@ class FactsViewModel {
       self.title.value = countryFacts.country
     } failureCompletion: {[weak self] (error) in
       guard let self = self else { return }
+      self.facts.value = []
       self.fetchFailure.value = true
       self.errorReason.value = error.description
     }

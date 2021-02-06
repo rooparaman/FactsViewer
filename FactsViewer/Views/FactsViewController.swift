@@ -29,6 +29,7 @@ class FactsViewController: UIViewController {
     label.font = UIFont.systemFont(ofSize: 15)
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 0
+    label.textAlignment = .center
     label.textColor = .black
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
@@ -38,7 +39,6 @@ class FactsViewController: UIViewController {
     super.viewDidLoad()
     
     factsTblView.dataSource = self
-    factsTblView.isHidden = true
     factsTblView.register(FactItemCell.self, forCellReuseIdentifier: Constants.factCellIdentifier)
     
     factsTblView.refreshControl = UIRefreshControl()
@@ -48,29 +48,17 @@ class FactsViewController: UIViewController {
       guard let self = self else { return }
       self.factItems = facts
       DispatchQueue.main.async {
-        if self.activityIndicator.isAnimating {
-          self.activityIndicator.stopAnimating()
-        }
-        
-        self.factsTblView.isHidden = facts.count != 0 ? false : true
+        self.errorLabel.isHidden = facts.count == 0 ? false : true
+        self.hideProgressIndicators()
         self.factsTblView.reloadData()
-        
-        
-        if let refreshCtrl = self.factsTblView.refreshControl, refreshCtrl.isRefreshing {
-          self.factsTblView.refreshControl?.endRefreshing()
-        }
       }
-      
     }
     
     viewModel.fetchFailure.bind {[weak self] (isfailure) in
       guard let self = self else { return }
       DispatchQueue.main.async {
         self.errorLabel.isHidden = false
-        self.factsTblView.isHidden = true
-        if self.activityIndicator.isAnimating {
-          self.activityIndicator.stopAnimating()
-        }
+        self.hideProgressIndicators()
       }
     }
     
@@ -96,6 +84,17 @@ class FactsViewController: UIViewController {
     loadViews()
   }
   
+  private func hideProgressIndicators(){
+    DispatchQueue.main.async {
+      if self.activityIndicator.isAnimating {
+        self.activityIndicator.stopAnimating()
+      }
+      if let refreshCtrl = self.factsTblView.refreshControl, refreshCtrl.isRefreshing {
+        self.factsTblView.refreshControl?.endRefreshing()
+      }
+    }
+  }
+  
   private func loadViews(){
     self.view.backgroundColor = .white
     errorLabel.isHidden = true
@@ -118,6 +117,7 @@ class FactsViewController: UIViewController {
     ])
     
     NSLayoutConstraint.activate([
+      errorLabel.widthAnchor.constraint(equalTo: safeArea.widthAnchor),
       errorLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
       errorLabel.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor)
     ])
