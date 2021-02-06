@@ -12,6 +12,11 @@
 		B75DD2A725CE771600A4630A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B75DD2A525CE771600A4630A /* LaunchScreen.storyboard */; };
 		B75DD2B225CE771700A4630A /* FactsViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2B125CE771700A4630A /* FactsViewerTests.swift */; };
 		B75DD2BD25CE771700A4630A /* FactsViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2BC25CE771700A4630A /* FactsViewerUITests.swift */; };
+		B75DD2DF25CE7B1C00A4630A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2DE25CE7B1C00A4630A /* APIService.swift */; };
+		B75DD2E725CE7B2C00A4630A /* FactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2E625CE7B2C00A4630A /* FactsService.swift */; };
+		B75DD2EC25CE7BCA00A4630A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2EB25CE7BCA00A4630A /* CustomError.swift */; };
+		B75DD2F125CE81D900A4630A /* FactsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2F025CE81D900A4630A /* FactsDataModel.swift */; };
+		B75DD2F625CE822900A4630A /* FactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75DD2F525CE822900A4630A /* FactsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +48,11 @@
 		B75DD2B825CE771700A4630A /* FactsViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FactsViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B75DD2BC25CE771700A4630A /* FactsViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsViewerUITests.swift; sourceTree = "<group>"; };
 		B75DD2BE25CE771700A4630A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B75DD2DE25CE7B1C00A4630A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		B75DD2E625CE7B2C00A4630A /* FactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsService.swift; sourceTree = "<group>"; };
+		B75DD2EB25CE7BCA00A4630A /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		B75DD2F025CE81D900A4630A /* FactsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsDataModel.swift; sourceTree = "<group>"; };
+		B75DD2F525CE822900A4630A /* FactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +139,7 @@
 		B75DD2D625CE7A0500A4630A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B75DD2EB25CE7BCA00A4630A /* CustomError.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -136,6 +147,8 @@
 		B75DD2D725CE7A1300A4630A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B75DD2DE25CE7B1C00A4630A /* APIService.swift */,
+				B75DD2E625CE7B2C00A4630A /* FactsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -164,6 +177,7 @@
 		B75DD2DB25CE7A4000A4630A /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				B75DD2F025CE81D900A4630A /* FactsDataModel.swift */,
 			);
 			path = DataModels;
 			sourceTree = "<group>";
@@ -171,6 +185,7 @@
 		B75DD2DC25CE7A5000A4630A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B75DD2F525CE822900A4630A /* FactsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,7 +319,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B75DD2E725CE7B2C00A4630A /* FactsService.swift in Sources */,
+				B75DD2EC25CE7BCA00A4630A /* CustomError.swift in Sources */,
+				B75DD2DF25CE7B1C00A4630A /* APIService.swift in Sources */,
+				B75DD2F125CE81D900A4630A /* FactsDataModel.swift in Sources */,
 				B75DD29B25CE771500A4630A /* AppDelegate.swift in Sources */,
+				B75DD2F625CE822900A4630A /* FactsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
