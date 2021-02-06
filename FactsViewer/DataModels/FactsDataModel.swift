@@ -6,9 +6,9 @@ import Foundation
 
 struct FactsDataModel: Codable {
     let title: String
-    let rows: [Info]
+    let rows: [FactItemData]
 }
-struct Info: Codable {
+struct FactItemData: Codable {
   let title: String?
   let description: String?
   let imageHref: String?
