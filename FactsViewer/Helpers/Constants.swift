@@ -7,4 +7,9 @@ struct Constants {
   static let getFactsUrl = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
   static let placeHolderImage = "placeholder"
   static let factCellIdentifier = "factCell"
+  enum accessibilityIdentifiers : String {
+    case factItemTitleLabel = "factTitleLabel"
+    case factItemDescLabel = "factDescLabel"
+    case factItemImage = "factItemImage"
+  }
 }

@@ -12,6 +12,7 @@ class FactItemCell: UITableViewCell {
     let img = UIImageView()
     img.contentMode = .scaleAspectFit
     img.translatesAutoresizingMaskIntoConstraints = false
+    img.accessibilityIdentifier = Constants.accessibilityIdentifiers.factItemImage.rawValue
     img.clipsToBounds = true
     img.image = UIImage(named: Constants.placeHolderImage)
     return img
@@ -24,6 +25,7 @@ class FactItemCell: UITableViewCell {
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 2
     label.textColor = .black
+    label.accessibilityIdentifier = Constants.accessibilityIdentifiers.factItemTitleLabel.rawValue
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -34,6 +36,7 @@ class FactItemCell: UITableViewCell {
     label.lineBreakMode = .byWordWrapping
     label.numberOfLines = 0
     label.textColor = .black
+    label.accessibilityIdentifier = Constants.accessibilityIdentifiers.factItemDescLabel.rawValue
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
