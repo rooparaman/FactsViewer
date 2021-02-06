@@ -7,7 +7,10 @@ struct FactsDataMapper {
   func parseJson(factsData:Data) -> FactsModel? {
     let decoder = JSONDecoder.init()
     do {
-      let decodedData = try decoder.decode(FactsDataModel.self, from: factsData)
+      //      let strData = String(bytes: info, encoding: .utf8)
+      let strData = String(data: factsData, encoding: .ascii)?.data(using: .utf8)
+      //print(strData)
+      let decodedData = try decoder.decode(FactsDataModel.self, from: strData!)
       var facts: [FactItem] = []
       for data in decodedData.rows {
         let title = data.title

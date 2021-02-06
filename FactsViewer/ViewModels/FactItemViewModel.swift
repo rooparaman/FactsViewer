@@ -3,6 +3,7 @@
 // Using Swift 5.0
 
 import UIKit
+let imageCache = NSCache<AnyObject, AnyObject>()
 
 class FactItemViewModel {
   let factImageUrl: String
@@ -14,6 +15,24 @@ class FactItemViewModel {
     self.factTitle = title
     self.factDescription = description
     self.factImageUrl = imageRef
+  }
+  
+  func loadThumbnail(urlSting: String){
+    let service = FactsService()
+    if let _ = URL(string: urlSting) {
+      if let imageFromCache = imageCache.object(forKey: urlSting as AnyObject) {
+        self.image.value = imageFromCache as! UIImage
+      }
+      
+      service.downloadImage(url: urlSting) {(data) in
+        guard let imageFromUrl = UIImage(data: data) else { return }
+        imageCache.setObject(imageFromUrl, forKey: urlSting as AnyObject)
+        self.image.value = imageFromUrl
+      } failureCompletion: {(_) in
+        self.image.value = UIImage(named: Constants.placeHolderImage)!
+      }
+    }
+    
   }
   
 }

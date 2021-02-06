@@ -6,7 +6,7 @@ import Foundation
 
 class FactsViewModel {
   let title = Box("")
-  let facts = Box([])
+  let facts : Box<[FactItem]> = Box([])
   let factsService = FactsService()
   let fetchFailure = Box(false)
   

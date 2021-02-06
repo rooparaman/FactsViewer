@@ -23,4 +23,15 @@ struct FactsService {
       }
     }
   }
+  
+  func downloadImage(url: String,completion: @escaping (Data) -> (), failureCompletion: @escaping (CustomError)-> ()) {
+    apiService.getData(with: url) { (result) in
+      switch result {
+      case .failure(let error):
+        failureCompletion(error)
+      case .success(let data):
+        completion(data)
+      }
+    }
+  }
 }
